@@ -1,9 +1,5 @@
 Red[needs: view]
 
-calc: does[
-    
-]
-
 
 
 view[
@@ -17,7 +13,6 @@ view[
     calc: button "Calculate"  [
     eval-bloc: []
     append eval-bloc to word! t/text
-    print eval-bloc
     finish: max (to float! a/text) (to float! b/text)
     start: min (to float! a/text) (to float! b/text)
     total: 0.0
@@ -25,11 +20,10 @@ view[
     h: finish - start / 10
     repeat i 10
     [
-        tmp: to float! ( do eval )
-        print tmp
-        xnext: x + h
-        total: total + (x + (xnext + x / 2)) * tmp
-        x: xnext
+        x: x + h / 2
+        func-val: to float! ( do eval-bloc )
+      
+        total: total + (func-val * x)
     ]
         w/data: total
     ]
