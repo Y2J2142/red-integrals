@@ -11,19 +11,14 @@ view[
     text "b:" b: field
     return
     calc: button "Calculate"  [
-    eval-bloc: []
-    append eval-bloc to word! t/text
-        print t/text
     finish: max (to float! a/text) (to float! b/text)
-    start: min (to float! a/text) (to float! b/text)
+    x: min (to float! a/text) (to float! b/text)
     total: 0.0
-    x: start
-    h: (finish - start) / 100
+    h: (finish - x) / 100
     repeat i 100
     [
         x: x + h
         func-val: to float! ( do t/text )
-      
         total: total + (func-val * h)
     ]
         w/data: total
