@@ -18,10 +18,11 @@ view[
     repeat i 100
     [
         x: x + h
-        func-val: to float! ( do t/text )
+        func-val: absolute (to float! ( do t/text ))
         total: total + (func-val * h)
     ]
         w/data: total
+
     ]
     return
     text "Integral value" w: field
